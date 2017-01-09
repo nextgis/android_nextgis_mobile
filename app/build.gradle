@@ -93,7 +93,7 @@ dependencies {
 // buildConfig = android.defaultPublishConfig.toString()
 
 android {
-    defaultPublishConfig "debug" // uncomment it for the debug of the native code
+//    defaultPublishConfig "debug" // uncomment it for the debug of the native code
 }
 
 def String buildConfig = android.defaultPublishConfig.toString()
@@ -107,8 +107,8 @@ android {
 // that is needed for the target device or emulator.
 
 //    def cmAndroidAbis = ["armeabi", "armeabi-v7a", "x86", "mips", "arm64-v8a", "x86_64", "mips64"]
-//    def cmAndroidAbis = ["armeabi-v7a", "arm64-v8a"]
-    def cmAndroidAbis = ["armeabi-v7a"] // for debug
+    def cmAndroidAbis = ["armeabi-v7a", "arm64-v8a"]
+//    def cmAndroidAbis = ["armeabi-v7a"] // for debug
 //    def String abiFiltersString = cmAndroidAbis.toString()
 //    abiFiltersString = abiFiltersString.substring(1, abiFiltersString.length() - 1)
 
@@ -125,7 +125,7 @@ android {
 
                 arguments "-DSUPRESS_VERBOSE_OUTPUT=OFF",
 //                        "-DCMAKE_VERBOSE_MAKEFILE=TRUE",
-                        "-DSKIP_GIT_PULL=TRUE",
+//                        "-DSKIP_GIT_PULL=TRUE",
 //                        "-DSTRIP_NGS_LIBS=TRUE",
 
                         "-DEXT_DOWNLOAD_DIR=${projectDir}/.externalNativeBuild/third-party-src",
