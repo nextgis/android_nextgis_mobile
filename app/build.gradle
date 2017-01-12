@@ -29,7 +29,7 @@ android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
     defaultConfig {
-        applicationId "com.nextgis.glviewer"
+        applicationId "com.nextgis.mobile_ng"
 //        minSdkVersion 9
         minSdkVersion 13 // due to testfairy sdk
         targetSdkVersion 25
