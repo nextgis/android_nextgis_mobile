@@ -76,21 +76,22 @@ public class MainActivity
                 openFile();
                 return true;
 
-            case R.id.action_select_file:
-                selectFilesAndFolderNative(1);
-                return true;
-
-            case R.id.action_select_files:
-                selectFilesAndFolderNative(2);
-                return true;
-
-            case R.id.action_select_folder:
-                selectFilesAndFolderNative(3);
-                return true;
-
-            case R.id.action_select_folders:
-                selectFilesAndFolderNative(4);
-                return true;
+// for test
+//            case R.id.action_select_file:
+//                selectFilesAndFolderNative(1);
+//                return true;
+//
+//            case R.id.action_select_files:
+//                selectFilesAndFolderNative(2);
+//                return true;
+//
+//            case R.id.action_select_folder:
+//                selectFilesAndFolderNative(3);
+//                return true;
+//
+//            case R.id.action_select_folders:
+//                selectFilesAndFolderNative(4);
+//                return true;
 
             case R.id.action_settings:
                 return true;
@@ -130,24 +131,24 @@ public class MainActivity
             return;
         }
 
-        LocalResourceNativeSelectDialog dialog = new LocalResourceNativeSelectDialog();
-        dialog.setPath(path.getAbsolutePath());
+        LocalResourceSelectDialog dialog = new LocalResourceSelectDialog();
+        dialog.setPath(path);
 
         switch (type) {
             case 1:
-                dialog.setItemTypeMask(ConstantsUI.FILETYPE_ALL_FILE_TYPES);
+                dialog.setTypeMask(ConstantsUI.FILETYPE_ALL_FILE_TYPES);
                 dialog.setCanSelectMultiple(false);
                 break;
             case 2:
-                dialog.setItemTypeMask(ConstantsUI.FILETYPE_ALL_FILE_TYPES);
+                dialog.setTypeMask(ConstantsUI.FILETYPE_ALL_FILE_TYPES);
                 dialog.setCanSelectMultiple(true);
                 break;
             case 3:
-                dialog.setItemTypeMask(ConstantsUI.FILETYPE_FOLDER);
+                dialog.setTypeMask(ConstantsUI.FILETYPE_FOLDER);
                 dialog.setCanSelectMultiple(false);
                 break;
             case 4:
-                dialog.setItemTypeMask(ConstantsUI.FILETYPE_FOLDER);
+                dialog.setTypeMask(ConstantsUI.FILETYPE_FOLDER);
                 dialog.setCanSelectMultiple(true);
                 break;
         }

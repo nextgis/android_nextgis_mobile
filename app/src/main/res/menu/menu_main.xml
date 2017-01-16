@@ -34,6 +34,9 @@
             android:title="@string/open_file"
             app:showAsAction="never"
             />
+
+    <!--for test-->
+<!--
     <item
             android:id="@+id/action_select_file"
             android:orderInCategory="100"
@@ -58,6 +61,7 @@
             android:title="@string/select_folders"
             app:showAsAction="never"
             />
+-->
     <item
             android:id="@+id/action_settings"
             android:orderInCategory="100"
