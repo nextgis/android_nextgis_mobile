@@ -29,7 +29,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
-import com.nextgis.dialog.LocalResourceNativeSelectDialog;
 import com.nextgis.libngui.activity.NGActivity;
 import com.nextgis.libngui.dialog.LocalResourceSelectDialog;
 import com.nextgis.libngui.util.ConstantsUI;
