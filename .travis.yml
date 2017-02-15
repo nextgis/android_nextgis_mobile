@@ -1,0 +1,54 @@
+# This is the config file for building NextGIS Mobile for Android
+# and running its tests with Travis-ci.org
+
+language: android
+jdk: oraclejdk8
+sudo: false
+
+os:
+    - linux
+
+android:
+    components:
+        - tools
+        - platform-tools
+        - build-tools-25.0.2
+        - android-25
+        - extra-android-m2repository
+        - extra-google-m2repository
+#        - sys-img-armeabi-v7a-android-22
+
+before_install:
+    - export ANDROID_NDK_HOME=$HOME/android-ndk
+    - export PATH=$HOME/android-cmake/bin:$PATH
+
+install:
+  - ./ci/travis/android_gradle/install.sh
+
+#before_script:
+#    # Create and start emulator
+#    - echo no | android create avd --force -n test -t android-22 --abi armeabi-v7a
+#    - emulator -avd test -no-skin -no-audio -no-window &
+#    - android-wait-for-emulator
+#    - adb shell input keyevent 82 &
+
+script: ./gradlew build connectedCheck
+#script: ./gradlew connectedAndroidTest
+
+#script:
+#  - ./ci/travis/android_gradle/script.sh
+
+#before_cache:
+#  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+#  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+#cache:
+#  directories:
+#    - $HOME/.gradle/caches/
+#    - $HOME/.gradle/wrapper/
+#    - $HOME/.android/build-cache
+
+notifications:
+  email:
+    recipients:
+      - dmitry.baryshnikov@nextgis.com
+      - nikita.kirin@nextgis.com
