@@ -46,7 +46,7 @@ before_script:
     - export ANDROID_NDK_HOME=$ANDROID_HOME/ndk-bundle
 
 script:
-    - ./gradlew --info assembleDebug
+    - ./gradlew --info assembleRelease
 #    - ./gradlew assemble lint
 #    - ./gradlew library:assembleDebugAndroidTest
 #    - ./wait-for-emulator
