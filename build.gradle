@@ -44,3 +44,23 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+// For debug.
+// Gradle plugin that adds a 'taskTree' task that prints task dependency tree report to the console.
+// For more info see:
+// https://github.com/dorongold/gradle-task-tree
+// https://plugins.gradle.org/plugin/com.dorongold.task-tree
+// Example:
+// gradlew assembleDebug taskTree --no-repeat
+//
+//buildscript {
+//    repositories {
+//        maven {
+//            url "https://plugins.gradle.org/m2/"
+//        }
+//    }
+//    dependencies {
+//        classpath "gradle.plugin.com.dorongold.plugins:task-tree:1.2.2"
+//    }
+//}
+//apply plugin: "com.dorongold.task-tree"
