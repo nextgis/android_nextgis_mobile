@@ -33,7 +33,6 @@ before_script:
     - echo y | $ANDROID_HOME/tools/android update sdk --no-ui --all --filter "tools"
     - echo y | $ANDROID_HOME/tools/bin/sdkmanager "platform-tools"
     - echo y | $ANDROID_HOME/tools/bin/sdkmanager "build-tools;25.0.2"
-    - echo y | $ANDROID_HOME/tools/bin/sdkmanager "extras;android;support"
     - echo y | $ANDROID_HOME/tools/bin/sdkmanager "extras;android;m2repository"
     - echo y | $ANDROID_HOME/tools/bin/sdkmanager "ndk-bundle"
     - echo y | $ANDROID_HOME/tools/bin/sdkmanager "cmake;3.6.3155560"
