@@ -19,6 +19,7 @@ before_install:
     - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
     - sudo apt-get update --yes
     - sudo apt-get install libstdc++6 --yes
+    - sudo apt-get install build-essential --yes
     - sudo apt-get install swig --yes
     # Android tools
     - wget -c -N -P $HOME/downloads https://dl.google.com/android/repository/tools_r25.2.3-linux.zip
