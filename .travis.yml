@@ -3,49 +3,55 @@
 
 language: android
 jdk: oraclejdk8
-sudo: true
+sudo: required
+os: linux
 
-os:
-    - linux
-
-android:
-    components:
-        - tools
-        - platform-tools
-        - build-tools-25.0.2
-        - android-25
-        - extra-android-m2repository
-        - extra-google-m2repository
-#        - sys-img-armeabi-v7a-android-22
+addons:
+    apt_packages:
+        - lib32ncurses5
+        - libstdc++6
+        - lib32stdc++6
+        - swig
 
 before_install:
-    - export ANDROID_NDK_HOME=$HOME/android-ndk
-    - export PATH=$HOME/android-cmake/bin:$PATH
+    - wget -c -N -P $HOME/downloads https://dl.google.com/android/repository/tools_r25.2.3-linux.zip
+    - unzip -q $HOME/downloads/tools_r25.2.3-linux.zip -d $HOME/android-sdk-linux
+    - export ANDROID_HOME=$HOME/android-sdk-linux
+    - export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools
 
-install:
-  - ./ci/travis/android_gradle/install.sh
+before_cache:
+    - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
+    - rm -rf $HOME/.gradle/caches/*/plugin-resolution/
 
-#before_script:
-#    # Create and start emulator
+cache:
+    directories:
+        - $HOME/.gradle/caches/
+        - $HOME/.gradle/wrapper/
+
+before_script:
+#    - echo y | $ANDROID_HOME/tools/android update sdk --no-ui --all --filter "tools, platform-tools"
+    - echo y | $ANDROID_HOME/tools/android update sdk --no-ui --all --filter "tools"
+    - echo y | $ANDROID_HOME/tools/bin/sdkmanager "platform-tools"
+    - echo y | $ANDROID_HOME/tools/bin/sdkmanager "build-tools;25.0.2"
+    - echo y | $ANDROID_HOME/tools/bin/sdkmanager "extras;android;support"
+    - echo y | $ANDROID_HOME/tools/bin/sdkmanager "extras;android;m2repository"
+    - echo y | $ANDROID_HOME/tools/bin/sdkmanager "ndk-bundle"
+    - echo y | $ANDROID_HOME/tools/bin/sdkmanager "cmake;3.6.3155560"
+    - echo y | $ANDROID_HOME/tools/bin/sdkmanager "lldb;2.2"
+    - echo y | $ANDROID_HOME/tools/bin/sdkmanager "platforms;android-25"
+#    - echo y | $ANDROID_HOME/tools/bin/sdkmanager "platforms;android-22"
+#    - echo y | $ANDROID_HOME/tools/bin/sdkmanager "system-images;android-22;default;armeabi-v7a"
 #    - echo no | android create avd --force -n test -t android-22 --abi armeabi-v7a
-#    - emulator -avd test -no-skin -no-audio -no-window &
-#    - android-wait-for-emulator
-#    - adb shell input keyevent 82 &
+#    - mksdcard -l testsdcard 1024M sdcard.img
+#    - emulator -avd test -sdcard sdcard.img -no-audio -no-window &
+    - export ANDROID_NDK_HOME=$ANDROID_HOME/ndk-bundle
 
-script: ./gradlew assembleDebug
-#script: ./gradlew connectedAndroidTest
-
-#script:
-#  - ./ci/travis/android_gradle/script.sh
-
-#before_cache:
-#  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
-#  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
-#cache:
-#  directories:
-#    - $HOME/.gradle/caches/
-#    - $HOME/.gradle/wrapper/
-#    - $HOME/.android/build-cache
+script:
+    - ./gradlew --info assembleDebug
+#    - ./gradlew assemble lint
+#    - ./gradlew library:assembleDebugAndroidTest
+#    - ./wait-for-emulator
+#    - ./gradlew library:connectAndroidTest
 
 notifications:
   email:
