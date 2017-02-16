@@ -6,14 +6,21 @@ jdk: oraclejdk8
 sudo: required
 os: linux
 
-addons:
-    apt_packages:
-        - lib32ncurses5
-        - libstdc++6
-        - lib32stdc++6
-        - swig
+#addons:
+#    apt_packages:
+#        - lib32ncurses5
+#        - libstdc++6
+#        - lib32stdc++6
+#        - swig
 
 before_install:
+    # By default, we get an older version of libstdc++6 so we need to update it
+    # http://askubuntu.com/questions/575505/glibcxx-3-4-20-not-found-how-to-fix-this-error
+    - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
+    - sudo apt-get update --yes
+    - sudo apt-get install libstdc++6 --yes
+    - sudo apt-get install swig --yes
+    # Android tools
     - wget -c -N -P $HOME/downloads https://dl.google.com/android/repository/tools_r25.2.3-linux.zip
     - unzip -q $HOME/downloads/tools_r25.2.3-linux.zip -d $HOME/android-sdk-linux
     - export ANDROID_HOME=$HOME/android-sdk-linux
