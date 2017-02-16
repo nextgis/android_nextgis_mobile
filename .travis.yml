@@ -53,7 +53,8 @@ before_script:
     - export ANDROID_NDK_HOME=$ANDROID_HOME/ndk-bundle
 
 script:
-    - travis_wait 40 ./gradlew --info assembleRelease
+    - travis_wait 40 ./gradlew --info assembleRelease > gradlew-log.txt
+    - cat gradlew-log.txt
 #    - ./gradlew assemble lint
 #    - ./gradlew library:assembleDebugAndroidTest
 #    - ./wait-for-emulator
