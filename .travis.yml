@@ -53,6 +53,9 @@ script:
 #    - ./wait-for-emulator
 #    - ./gradlew library:connectAndroidTest
 
+after_success:
+    - ls -l ./app/build/outputs/apk
+
 notifications:
   email:
     recipients:
