@@ -10,9 +10,10 @@ before_install:
     # By default, we get an older version of libstdc++6 so we need to update it
     # http://askubuntu.com/questions/575505/glibcxx-3-4-20-not-found-how-to-fix-this-error
     - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
+    - sudo add-apt-repository ppa:nschloe/swig-backports -y
     - sudo apt-get update --yes
     - sudo apt-get install libstdc++6 --yes
-    - sudo apt-get install swig --yes
+    - sudo apt-get install swig3.0 --yes
     # Android tools
     - wget -c -N -P $HOME/downloads https://dl.google.com/android/repository/tools_r25.2.3-linux.zip
     - unzip -q $HOME/downloads/tools_r25.2.3-linux.zip -d $HOME/android-sdk-linux
@@ -45,7 +46,8 @@ before_script:
     - export ANDROID_NDK_HOME=$ANDROID_HOME/ndk-bundle
 
 script:
-    - ./ci/travis/android_gradle/script.sh
+    - travis_wait 60 ./gradlew assembleRelease
+#    - ./ci/travis/android_gradle/script.sh
 #    - ./gradlew assemble lint
 #    - ./gradlew library:assembleDebugAndroidTest
 #    - ./wait-for-emulator
