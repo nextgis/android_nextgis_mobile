@@ -47,14 +47,12 @@ before_script:
 
 script:
     - travis_wait 60 ./gradlew assembleRelease
+    - ls -l ./app/build/outputs/apk
 #    - ./ci/travis/android_gradle/script.sh
 #    - ./gradlew assemble lint
 #    - ./gradlew library:assembleDebugAndroidTest
 #    - ./wait-for-emulator
 #    - ./gradlew library:connectAndroidTest
-
-after_success:
-    - ls -l ./app/build/outputs/apk
 
 notifications:
   email:
