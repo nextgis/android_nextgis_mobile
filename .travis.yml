@@ -6,13 +6,6 @@ jdk: oraclejdk8
 sudo: required
 os: linux
 
-#addons:
-#    apt_packages:
-#        - lib32ncurses5
-#        - libstdc++6
-#        - lib32stdc++6
-#        - swig
-
 before_install:
     # By default, we get an older version of libstdc++6 so we need to update it
     # http://askubuntu.com/questions/575505/glibcxx-3-4-20-not-found-how-to-fix-this-error
@@ -36,7 +29,6 @@ cache:
         - $HOME/.gradle/wrapper/
 
 before_script:
-#    - echo y | $ANDROID_HOME/tools/android update sdk --no-ui --all --filter "tools, platform-tools"
     - echo y | $ANDROID_HOME/tools/android update sdk --no-ui --all --filter "tools"
     - echo y | $ANDROID_HOME/tools/bin/sdkmanager "platform-tools"
     - echo y | $ANDROID_HOME/tools/bin/sdkmanager "build-tools;25.0.2"
