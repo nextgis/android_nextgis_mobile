@@ -31,4 +31,8 @@
     <string name="select_files">Select multi files</string>
     <string name="select_folder">Select folder</string>
     <string name="select_folders">Select multi folders</string>
+
+    <string name="permissions">Permissions</string>
+    <string name="requested_permissions">Application needs some permissions to work properly. It includes writing to external storage (to save data on card),
+        access to location services and getting contacts (to create and manage web accounts).</string>
 </resources>

@@ -23,7 +23,9 @@
 
 package com.nextgis.glviewer;
 
+import android.Manifest;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -39,6 +41,8 @@ import java.io.File;
 public class MainActivity
         extends NGActivity
 {
+    protected final static int PERMISSIONS_REQUEST = 1;
+
     protected Toolbar     mToolbar;
     protected MapFragment mMapFragment;
 
@@ -55,6 +59,44 @@ public class MainActivity
 
         FragmentManager fm = getSupportFragmentManager();
         mMapFragment = (MapFragment) fm.findFragmentById(R.id.map_fragment);
+
+        if (!hasPermissions()) {
+            String[] permissions = new String[] {
+                    Manifest.permission.ACCESS_COARSE_LOCATION,
+                    Manifest.permission.ACCESS_FINE_LOCATION,
+                    Manifest.permission.GET_ACCOUNTS,
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE};
+            requestPermissions(
+                    R.string.permissions, R.string.requested_permissions, PERMISSIONS_REQUEST,
+                    permissions);
+        }
+    }
+
+
+    protected boolean hasPermissions()
+    {
+        return isPermissionGranted(Manifest.permission.ACCESS_FINE_LOCATION) &&
+                isPermissionGranted(Manifest.permission.ACCESS_COARSE_LOCATION) &&
+                isPermissionGranted(Manifest.permission.GET_ACCOUNTS) &&
+                isPermissionGranted(Manifest.permission.WRITE_EXTERNAL_STORAGE);
+    }
+
+
+    @Override
+    public void onRequestPermissionsResult(
+            int requestCode,
+            @NonNull
+                    String[] permissions,
+            @NonNull
+                    int[] grantResults)
+    {
+        switch (requestCode) {
+            case PERMISSIONS_REQUEST:
+//                mMapFragment.restartGpsListener();
+                break;
+            default:
+                super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
     }
 
 

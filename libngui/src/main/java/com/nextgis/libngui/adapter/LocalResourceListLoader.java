@@ -102,10 +102,14 @@ public class LocalResourceListLoader
             return resources;
         }
 
-        if (null != mPath.getParentFile()) {
-            LocalResourceListItem item =
-                    new LocalResourceListItem(mPath.getParentFile(), FILETYPE_PARENT, false, false);
-            resources.add(item);
+        File parentFile = mPath.getParentFile();
+        if (null != parentFile) {
+            // TODO: get list of sdcards
+            if (!parentFile.getAbsolutePath().equals("/storage/emulated")) {
+                LocalResourceListItem item =
+                        new LocalResourceListItem(parentFile, FILETYPE_PARENT, false, false);
+                resources.add(item);
+            }
         }
 
         File[] files = mPath.listFiles();

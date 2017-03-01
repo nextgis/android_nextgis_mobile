@@ -31,4 +31,8 @@
     <string name="select_files">Select multi files</string>
     <string name="select_folder">Select folder</string>
     <string name="select_folders">Select multi folders</string>
+
+    <string name="permissions">Разрешения</string>
+    <string name="requested_permissions">Приложению требуются некоторые разрешения для корректной работы: запись на устройство (для хранения данных), доступ
+        к местоположению и получение контактов (для создания и управления веб аккаунтами).</string>
 </resources>
