@@ -26,10 +26,10 @@ package com.nextgis.glviewer;
 import android.app.Application;
 import android.content.pm.PackageManager;
 import android.util.Log;
+import com.joshdholtz.sentry.Sentry;
 import com.nextgis.ngsandroid.NgsAndroidJni;
 import com.nextgis.store.bindings.Api;
 import com.nextgis.store.bindings.Options;
-//import com.testfairy.TestFairy;
 
 import java.io.File;
 
@@ -42,7 +42,8 @@ public class MainApplication
     {
         super.onCreate();
 
-//        TestFairy.begin(this, "1ff0bcca6efd0ec1280a02e0276e89ecc7293d27");
+        Sentry.init(this, BuildConfig.SENTRY_DSN);
+        Sentry.captureMessage("NGM3 Sentry is init.", Sentry.SentryEventLevel.DEBUG);
 
         NgsAndroidJni.initLogger();
         Log.d(Constants.TAG, "NGS version: " + Api.ngsGetVersionString(null));
