@@ -2,6 +2,13 @@
 
 Next generation NextGIS Mobile application (codename v3)
 
+# Build status
+
+![build status](http://176.9.38.120/buildbot/png?builder=ngm3) 
+[![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/nextgis/android_nextgis_mobile.svg)](http://isitmaintained.com/project/nextgis/android_nextgis_mobile "Average time to resolve an issue") 
+[![Percentage of issues still open](http://isitmaintained.com/badge/open/nextgis/android_nextgis_mobile.svg)](http://isitmaintained.com/project/nextgis/android_nextgis_mobile "Percentage of issues still open")
+[![Platform](https://img.shields.io/badge/Platform-Android-green.svg?maxAge=2592000)]()
+
 # License
 
 The application is licensed under the terms of GNU GPL v3 or any later version.
