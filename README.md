@@ -1,6 +1,6 @@
-# Android Nextgis Mobile applicaton
+# Android NextGIS Mobile application
 
-Next generation NextGIS Mobile (codename v3)
+Next generation NextGIS Mobile application (codename v3)
 
 # License
 
