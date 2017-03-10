@@ -1,11 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
 <!--
   ~ Project:  NextGIS Mobile
   ~ Purpose:  Mobile GIS for Android.
   ~ Author:   Dmitry Baryshnikov (aka Bishop), bishop.dev@gmail.com
   ~ Author:   NikitaFeodonit, nfeodonit@yandex.com
   ~ Author:   Stanislav Petriakov, becomeglory@gmail.com
-  ~ *****************************************************************************
-  ~ Copyright (c) 2012-2016 NextGIS, info@nextgis.com
+  ~ ******************************************************************************
+  ~ Copyright (c) 2012-2017 NextGIS, info@nextgis.com
   ~
   ~ This program is free software: you can redistribute it and/or modify
   ~ it under the terms of the GNU General Public License as published by
@@ -27,6 +28,6 @@
         android:id="@+id/map_fragment"
         android:layout_height="match_parent"
         android:layout_width="match_parent"
-        android:name="com.nextgis.glviewer.MapFragment"
+        android:name="com.nextgis.mobile.fragment.MapFragment"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         />

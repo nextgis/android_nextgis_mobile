@@ -5,8 +5,8 @@
   ~ Author:   Dmitry Baryshnikov (aka Bishop), bishop.dev@gmail.com
   ~ Author:   NikitaFeodonit, nfeodonit@yandex.com
   ~ Author:   Stanislav Petriakov, becomeglory@gmail.com
-  ~ *****************************************************************************
-  ~ Copyright (c) 2012-2016 NextGIS, info@nextgis.com
+  ~ ******************************************************************************
+  ~ Copyright (c) 2012-2017 NextGIS, info@nextgis.com
   ~
   ~ This program is free software: you can redistribute it and/or modify
   ~ it under the terms of the GNU General Public License as published by
@@ -26,7 +26,7 @@
         android:fitsSystemWindows="true"
         android:layout_height="match_parent"
         android:layout_width="match_parent"
-        tools:context="com.nextgis.glviewer.MainActivity"
+        tools:context="com.nextgis.mobile.activity.MainActivity"
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         >
