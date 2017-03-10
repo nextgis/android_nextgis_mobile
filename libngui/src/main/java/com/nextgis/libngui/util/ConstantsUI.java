@@ -5,7 +5,7 @@
  * Author:   NikitaFeodonit, nfeodonit@yandex.com
  * Author:   Stanislav Petriakov, becomeglory@gmail.com
  * *****************************************************************************
- * Copyright (c) 2012-2016 NextGIS, info@nextgis.com
+ * Copyright (c) 2012-2017 NextGIS, info@nextgis.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser Public License as published by
@@ -23,8 +23,15 @@
 
 package com.nextgis.libngui.util;
 
+import com.nextgis.libngui.BuildConfig;
+
+
 public interface ConstantsUI
 {
+    String  TAG        = "nextgismobile";
+    int     NOT_FOUND  = -1;
+    boolean DEBUG_MODE = true;
+
     /**
      * File types
      */
@@ -39,5 +46,21 @@ public interface ConstantsUI
     int FILETYPE_ALL_FILE_TYPES =
             FILETYPE_FB | FILETYPE_GEOJSON | FILETYPE_ZIP | FILETYPE_SHP | FILETYPE_UNKNOWN;
 
-    String FRAGMENT_SELECT_RESOURCE = "select_resource";
+    String FRAGMENT_NGW_HEADER_SETTINGS  = "ngw_header_settings";
+    String FRAGMENT_NGW_SETTINGS         = "ngw_settings";
+    String FRAGMENT_NGID_HEADER_SETTINGS = "ngid_header_settings";
+    String FRAGMENT_NGID_SETTINGS        = "ngid_settings";
+    String FRAGMENT_NGID_LOGIN           = "ngid_login";
+    String FRAGMENT_SELECT_RESOURCE      = "select_resource";
+
+    String PREF_SCREEN_TITLE = "pref_screen_title";
+
+    /**
+     * HTTP parameters
+     */
+    String APP_USER_AGENT     = "NextGIS Mobile maplib v" + BuildConfig.VERSION_NAME;
+    int    IO_BUFFER_SIZE     = 32 * 1024; // 32k
+    int    MAX_CONTENT_LENGTH = 5 * 1024 * 1024; //5Mb
+
+    String TILE_EXT = ".tile";
 }

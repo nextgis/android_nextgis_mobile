@@ -5,7 +5,7 @@
  * Author:   NikitaFeodonit, nfeodonit@yandex.com
  * Author:   Stanislav Petriakov, becomeglory@gmail.com
  * ****************************************************************************
- * Copyright (c) 2012-2016 NextGIS, info@nextgis.com
+ * Copyright (c) 2012-2017 NextGIS, info@nextgis.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,11 +21,19 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.nextgis.glviewer;
+package com.nextgis.mobile.fragment;
 
-public interface Constants
+import android.support.v7.preference.PreferenceScreen;
+import com.nextgis.libngui.fragment.NGPreferenceHeaderFragment;
+import com.nextgis.mobile.R;
+
+
+public class SettingsHeaderFragment
+        extends NGPreferenceHeaderFragment
 {
-    String TAG              = "ngglviewer";
-    String DEFAULT_MAP_NAME = "default.ngmd";
-    String NGS_NAME         = "ngs.gpkg";
+    @Override
+    protected void createPreferences(PreferenceScreen screen)
+    {
+        addPreferencesFromResource(R.xml.preference_headers);
+    }
 }

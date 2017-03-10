@@ -5,7 +5,7 @@
  * Author:   NikitaFeodonit, nfeodonit@yandex.com
  * Author:   Stanislav Petriakov, becomeglory@gmail.com
  * *****************************************************************************
- * Copyright (c) 2012-2016 NextGIS, info@nextgis.com
+ * Copyright (c) 2012-2017 NextGIS, info@nextgis.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser Public License as published by
@@ -55,6 +55,7 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:25.2.0'
     compile 'com.android.support:design:25.2.0'
+    compile 'com.android.support:preference-v7:25.2.0'
 
     // JUnit 4 framework
     testCompile 'junit:junit:4.12'
@@ -64,6 +65,7 @@ dependencies {
     // Dependencies from the main compile block for the test app
     androidTestCompile 'com.android.support:appcompat-v7:25.2.0'
     androidTestCompile 'com.android.support:design:25.2.0'
+    androidTestCompile 'com.android.support:preference-v7:25.2.0'
 
     androidTestCompile 'com.android.support:support-annotations:25.2.0'
     androidTestCompile 'com.android.support.test:runner:0.5'

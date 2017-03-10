@@ -5,7 +5,7 @@
  * Author:   NikitaFeodonit, nfeodonit@yandex.com
  * Author:   Stanislav Petriakov, becomeglory@gmail.com
  * ****************************************************************************
- * Copyright (c) 2012-2016 NextGIS, info@nextgis.com
+ * Copyright (c) 2012-2017 NextGIS, info@nextgis.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,7 +21,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.nextgis.glviewer;
+package com.nextgis.mobile.activity;
 
 import android.Manifest;
 import android.os.Bundle;
@@ -31,6 +31,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
+import com.nextgis.libngui.api.IGISApplication;
+import com.nextgis.libngui.util.PermissionUtil;
+import com.nextgis.libngui.util.SettingsConstantsUI;
+import com.nextgis.mobile.R;
+import com.nextgis.mobile.fragment.MapFragment;
 import com.nextgis.libngui.activity.NGActivity;
 import com.nextgis.libngui.dialog.LocalResourceSelectDialog;
 import com.nextgis.libngui.util.ConstantsUI;
@@ -66,19 +71,20 @@ public class MainActivity
                     Manifest.permission.ACCESS_FINE_LOCATION,
                     Manifest.permission.GET_ACCOUNTS,
                     Manifest.permission.WRITE_EXTERNAL_STORAGE};
-            requestPermissions(
-                    R.string.permissions, R.string.requested_permissions, PERMISSIONS_REQUEST,
-                    permissions);
+            PermissionUtil.requestPermissions(this, R.string.permissions,
+                    R.string.requested_permissions, PERMISSIONS_REQUEST, permissions);
         }
     }
 
 
     protected boolean hasPermissions()
     {
-        return isPermissionGranted(Manifest.permission.ACCESS_FINE_LOCATION) &&
-                isPermissionGranted(Manifest.permission.ACCESS_COARSE_LOCATION) &&
-                isPermissionGranted(Manifest.permission.GET_ACCOUNTS) &&
-                isPermissionGranted(Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        return PermissionUtil.isPermissionGranted(this, Manifest.permission.ACCESS_FINE_LOCATION)
+                && PermissionUtil.isPermissionGranted(
+                this, Manifest.permission.ACCESS_COARSE_LOCATION)
+                && PermissionUtil.isPermissionGranted(this, Manifest.permission.GET_ACCOUNTS)
+                && PermissionUtil.isPermissionGranted(
+                this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
     }
 
 
@@ -112,6 +118,8 @@ public class MainActivity
     @Override
     public boolean onOptionsItemSelected(MenuItem item)
     {
+        final IGISApplication app = (IGISApplication) getApplication();
+
         switch (item.getItemId()) {
             case R.id.action_open_file:
                 openFile();
@@ -135,6 +143,7 @@ public class MainActivity
 //                return true;
 
             case R.id.action_settings:
+                app.showSettings(SettingsConstantsUI.ACTION_PREFS_GENERAL);
                 return true;
         }
 

@@ -5,7 +5,7 @@
  * Author:   NikitaFeodonit, nfeodonit@yandex.com
  * Author:   Stanislav Petriakov, becomeglory@gmail.com
  * ****************************************************************************
- * Copyright (c) 2012-2016 NextGIS, info@nextgis.com
+ * Copyright (c) 2012-2017 NextGIS, info@nextgis.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,12 +21,17 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.nextgis.glviewer;
+package com.nextgis.mobile;
 
-import android.app.Application;
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.text.TextUtils;
 import android.util.Log;
 import com.joshdholtz.sentry.Sentry;
+import com.nextgis.libngui.GISApplication;
+import com.nextgis.libngui.util.ConstantsUI;
+import com.nextgis.mobile.activity.SettingsActivity;
+import com.nextgis.libngui.util.SettingsConstantsUI;
 import com.nextgis.ngsandroid.NgsAndroidJni;
 import com.nextgis.store.bindings.Api;
 import com.nextgis.store.bindings.Options;
@@ -35,7 +40,7 @@ import java.io.File;
 
 
 public class MainApplication
-        extends Application
+        extends GISApplication
 {
     @Override
     public void onCreate()
@@ -46,7 +51,7 @@ public class MainApplication
         Sentry.captureMessage("NGM3 Sentry is init.", Sentry.SentryEventLevel.DEBUG);
 
         NgsAndroidJni.initLogger();
-        Log.d(Constants.TAG, "NGS version: " + Api.ngsGetVersionString(null));
+        Log.d(ConstantsUI.TAG, "NGS version: " + Api.ngsGetVersionString(null));
 
         initNgs();
     }
@@ -57,7 +62,7 @@ public class MainApplication
         try {
             return getPackageManager().getApplicationInfo(getPackageName(), 0).sourceDir;
         } catch (PackageManager.NameNotFoundException e) {
-            Log.d(Constants.TAG, e.getLocalizedMessage());
+            Log.d(ConstantsUI.TAG, e.getLocalizedMessage());
             return null;
         }
     }
@@ -83,7 +88,7 @@ public class MainApplication
     {
         Api.ngsInit(getGdalPath(), null);
         Api.ngsSetOptions(Options.OPT_DEBUGMODE);
-        Log.d(Constants.TAG, "NGS formats: " + Api.ngsGetVersionString("formats"));
+        Log.d(ConstantsUI.TAG, "NGS formats: " + Api.ngsGetVersionString("formats"));
     }
 
 
@@ -91,8 +96,31 @@ public class MainApplication
     public void onLowMemory()
     {
         // TODO: ngsOnLowMemory
-        Log.d(Constants.TAG, "onLowMemory() is fired");
+        Log.d(ConstantsUI.TAG, "onLowMemory() is fired");
 //        Api.ngsOnLowMemory();
         super.onLowMemory();
+    }
+
+
+    @Override
+    public void showSettings(String settings)
+    {
+        if (TextUtils.isEmpty(settings)) {
+            settings = SettingsConstantsUI.ACTION_PREFS_GENERAL;
+        }
+
+        switch (settings) {
+            case SettingsConstantsUI.ACTION_PREFS_GENERAL:
+            case SettingsConstantsUI.ACTION_PREFS_LOCATION:
+            case SettingsConstantsUI.ACTION_PREFS_TRACKING:
+                break;
+            default:
+                return;
+        }
+
+        Intent intent = new Intent(this, SettingsActivity.class);
+        intent.setAction(settings);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
 }

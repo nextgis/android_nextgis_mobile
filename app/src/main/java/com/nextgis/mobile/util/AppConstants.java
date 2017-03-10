@@ -5,7 +5,7 @@
  * Author:   NikitaFeodonit, nfeodonit@yandex.com
  * Author:   Stanislav Petriakov, becomeglory@gmail.com
  * ****************************************************************************
- * Copyright (c) 2012-2016 NextGIS, info@nextgis.com
+ * Copyright (c) 2012-2017 NextGIS, info@nextgis.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,19 +21,18 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.nextgis.glviewer;
+package com.nextgis.mobile.util;
 
-public interface SettingConstants
+public interface AppConstants
 {
-    String KEY_PREF_MAP                     = "map";
-    String KEY_PREF_MAP_PATH                = "map_path";
-    String KEY_PREF_LAST_SYNC_TIMESTAMP     = "last_sync_timestamp";
-    String KEY_PREF_LOCATION_SOURCE         = "location_source";
-    String KEY_PREF_LOCATION_MIN_TIME       = "location_min_time";
-    String KEY_PREF_LOCATION_MIN_DISTANCE   = "location_min_distance";
-    String KEY_PREF_LOCATION_ACCURATE_COUNT = "accurate_max_count";
-    String KEY_PREF_LOCATION_ACCURATE_TIME  = "accurate_max_time";
-    String KEY_PREF_TRACKS_MIN_TIME         = "tracks_min_time";
-    String KEY_PREF_TRACKS_MIN_DISTANCE     = "tracks_min_distance";
-    String KEY_PREF_TRACKS_SOURCE           = "tracks_location_source";
+    String DEFAULT_MAP_NAME = "default.ngmd";
+    String NGS_NAME         = "ngs.gpkg";
+
+    /**
+     * Fragments tags
+     */
+    String FRAGMENT_SETTINGS_HEADER_FRAGMENT = "settings_header_fragment";
+    String FRAGMENT_SETTINGS_FRAGMENT = "settings_fragment";
+
+    int DEFAULT_COORDINATES_FRACTION_DIGITS = 6;
 }
