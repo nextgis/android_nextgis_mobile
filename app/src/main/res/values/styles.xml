@@ -1,11 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
 <!--
   ~ Project:  NextGIS Mobile
   ~ Purpose:  Mobile GIS for Android.
   ~ Author:   Dmitry Baryshnikov (aka Bishop), bishop.dev@gmail.com
   ~ Author:   NikitaFeodonit, nfeodonit@yandex.com
   ~ Author:   Stanislav Petriakov, becomeglory@gmail.com
-  ~ *****************************************************************************
-  ~ Copyright (c) 2012-2016 NextGIS, info@nextgis.com
+  ~ ******************************************************************************
+  ~ Copyright (c) 2012-2017 NextGIS, info@nextgis.com
   ~
   ~ This program is free software: you can redistribute it and/or modify
   ~ it under the terms of the GNU General Public License as published by
@@ -29,5 +30,37 @@
     <style name="AppTheme"
            parent="Theme.NextGIS.AppCompat.Light">
     </style>
+    <style name="AppTheme.Dark"
+           parent="Theme.NextGIS.AppCompat.Dark">
+    </style>
 
+    <style name="status_panel">
+        <item name="android:textViewStyle">@style/status_panel_text</item>
+    </style>
+
+    <style name="status_panel_text"
+           parent="TextAppearance.AppCompat.Medium">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:drawablePadding">2dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="status_panel_text_land"
+           parent="status_panel_text">
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="IntroTip" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textColor">@color/color_white</item>
+    </style>
 </resources>

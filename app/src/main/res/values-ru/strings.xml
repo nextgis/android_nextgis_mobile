@@ -1,11 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
 <!--
   ~ Project:  NextGIS Mobile
   ~ Purpose:  Mobile GIS for Android.
   ~ Author:   Dmitry Baryshnikov (aka Bishop), bishop.dev@gmail.com
   ~ Author:   NikitaFeodonit, nfeodonit@yandex.com
   ~ Author:   Stanislav Petriakov, becomeglory@gmail.com
-  ~ *****************************************************************************
-  ~ Copyright (c) 2012-2016 NextGIS, info@nextgis.com
+  ~ ******************************************************************************
+  ~ Copyright (c) 2012-2017 NextGIS, info@nextgis.com
   ~
   ~ This program is free software: you can redistribute it and/or modify
   ~ it under the terms of the GNU General Public License as published by
@@ -22,17 +23,149 @@
   -->
 
 <resources>
-    <string name="app_name">NextGIS Mobile v3</string>
-    <string name="action_settings">Настройки</string>
     <string name="draw_time">Время прорисовки (сек): </string>
     <string name="feature_count">Количество объектов: </string>
     <string name="open_file">Открыть файл</string>
-    <string name="select_file">Select file</string>
     <string name="select_files">Select multi files</string>
     <string name="select_folder">Select folder</string>
     <string name="select_folders">Select multi folders</string>
 
+    <!--from NGM v2-->
+    <string name="navigation_drawer_open">Открыть панель навигации</string>
+    <string name="navigation_drawer_close">Закрыть панель навигации</string>
+    <string name="action_settings">Настройки</string>
+    <string name="action_add">Новый слой</string>
+    <string name="action_add_local">Открыть локальный</string>
+    <string name="general">Общие</string>
+    <string name="general_summary">Общие настройки</string>
+    <string name="keep_screen_on">Не отключать экран</string>
+    <string name="keep_screen_on_summary">Держать экран включенным</string>
+    <string name="show_scale_ruler">Шкала масштаба</string>
+    <string name="show_ruler_measuring">Линейка измерений</string>
+    <string name="show_zoom_controls">Включить управление масштабами</string>
+    <string name="show_zoom_controls_summary">Показывать кнопки +/- на карте для увеличения/уменьшения</string>
+    <string name="show_compass">Показывать мини компас</string>
+    <string name="map">Карта</string>
+    <string name="map_summary">Настройки карты</string>
+    <string name="app_description">Мобильная ГИС для визуализации и сбора геоданных в поле и отправки результатов на сервер. NextGIS Mobile также записывает треки и отправляет координаты местоположения на сервер.</string>
+    <string name="credits_intro">Лицензии</string>
+    <string name="credits">Некоторые иконки использованные в приложении с <a href="http://icons8.com/android-icons">Icons8.com</a> под лицензией <a
+            href="http://creativecommons.org/licenses/by-nd/3.0/">CC BY-ND 3.0</a>, <a href="http://materialdesignicons.com/">materialdesignicons.com</a> и <a href="http://romannurik.github.io/AndroidAssetStudio/icons-launcher.html">romannurik.github.io</a> под лицензией <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a></string>
+    <string name="copyright"><![CDATA[© <a href=\"http://nextgis.ru\">NextGIS</a>, 2012–2016]]></string>
+    <string name="contacts"><a href="http://nextgis.ru/contact/">Связаться с нами</a></string>
+    <string name="action_about">О программе</string>
+    <string name="add_current_place">Добавить текущую точку</string>
+    <string name="add_new_geometry">Добавить объект</string>
+    <string name="add_geometry_by_walk">Добавить объект обходом</string>
+    <string name="warning_no_edit_layers">Нет редактируемых слоёв</string>
+    <string name="select_layer">Выберите слой для редактирования</string>
+    <string name="menu_locate">Найти</string>
+    <string name="select_file">Выберите файл для создания слоя</string>
+    <string name="warning_install_file_manager">Пожалуйста, установите менеджер файлов</string>
+    <string name="error_file_unsupported">Тип файла не поддерживается</string>
+    <string name="warning_not_implemented">Еще не реализовано</string>
+    <string name="pref_location_accuracy">Точность определения местоположения</string>
+    <string name="pref_location_accuracy_gps">GPS</string>
+    <string name="pref_location_accuracy_cell">Другие сети</string>
+    <string name="location">Местоположение</string>
+    <string name="track_start">Начать запись трека</string>
+    <string name="track_stop">Завершить запись трека</string>
+    <string name="tracks_reload">Перезапустите запись для применения изменений</string>
+    <string name="pref_min_time">Минимальное время обновления</string>
+    <string name="pref_min_distance">Минимальное расстояние обновления</string>
+    <string name="meters">м</string>
+    <string name="seconds">с</string>
+    <string name="coordinates_format">Формат координат</string>
+    <string name="coordinates_fraction_digits">Разрядов после запятой</string>
+    <string name="select_coordinates_format">Выберите формат координат</string>
+    <string name="coordinates_format_summary">Выберите текст для координат</string>
+    <string name="map_bg">Фон карты</string>
+    <string name="map_bg_light">Светлый</string>
+    <string name="map_bg_neutral">Нейтральный</string>
+    <string name="map_bg_dark">Темный</string>
+    <string name="map_path">Путь к картам</string>
+    <string name="map_path_summary">Путь к папке для карт. Изменение может привести к тому, что папка не будет очищаться при удаление приложения</string>
+    <string name="select_map_path">Выберите путь к папке для карт</string>
+    <string name="moving">Перемещение…</string>
+    <string name="warning_map_moving">Внимание! Не отменяйте операцию и не останавливайте приложение в процессе перемещения данных в новое место. Может привести к потере данных!</string>
+    <string name="warning_folder_should_be_empty">Папка должна быть пустой. Операция отменена.</string>
+    <string name="frequentest">, так часто, как возможно</string>
+    <string name="compass_vibrate">Вибрация на безеле</string>
+    <string name="compass_true_north">Показывать истинный полюс</string>
+    <string name="compass_magnetic">Показывать магнитный полюс</string>
+    <string name="compass_keep_screen">Не отключать экран</string>
+    <string name="accurate_measures_count">Количество замеров GPS</string>
+    <string name="action_delete">Удалить</string>
+    <string name="action_attributes">Атрибуты</string>
+    <string name="show_status_panel">Показать панель статуса</string>
+    <string name="show_current_location">Показать текущее местоположение</string>
+    <string name="edit_layer">Отредактировать слой \'%s\'</string>
+    <string name="features_count_attributes">%1$d of %2$d</string>
+    <string name="coordinates">Координаты</string>
+    <string name="length">Длина</string>
+    <string name="center">Центр</string>
+    <string name="area">Площадь</string>
+    <string name="perimeter">Периметр</string>
+    <string name="compass_title">Компас</string>
+    <string name="refresh">Обновить</string>
+    <string name="points_for_edit">Точки (можно редактировать)</string>
+    <string name="lines_for_edit">Линии (можно редактировать)</string>
+    <string name="polygons_for_edit">Полигоны (можно редактировать)</string>
+    <string name="press_aback_again">Нажмите назад еще раз для выхода</string>
+    <string name="self_intersection">Обнаружено самопересечение</string>
+    <string name="ring_outside">Одна из дырок за границами полигона</string>
+    <string name="rings_intersection">Пересечение дырок</string>
+    <string name="interface_title">Интерфейс</string>
+    <string name="theme">Тема</string>
+    <string name="reset_settings">Сбросить все настройки</string>
+    <string name="reset_settings_title">Подтвердить?</string>
+    <string name="reset_settings_message">Все слои будут удалены! Будут восстановлены начальные слои.</string>
+    <string name="action_point_by_tap">Создать новую точку</string>
+    <string name="new_field">Новое поле</string>
+    <string name="empty_name">Имя не может быть пустым</string>
+    <string name="same_field_name">Поле с таким именем уже существует</string>
+    <string name="same_layer_name">Слой с таким именем уже существует</string>
+    <string name="default_field_name">Описание</string>
+    <string name="pref_sync_notification">Уведомление синхронизации</string>
+    <string name="tap_to_measure">Нажмите на карту для выбора точек</string>
     <string name="permissions">Разрешения</string>
     <string name="requested_permissions">Приложению требуются некоторые разрешения для корректной работы: запись на устройство (для хранения данных), доступ
         к местоположению и получение контактов (для создания и управления веб аккаунтами).</string>
+    <string name="track_restore">Продолжать трек после перезагрузки</string>
+    <string name="action_support">Поддержка</string>
+    <string name="app_support">Задавайте вопросы, сообщайте об ошибках или предлагайте новые функции используя любой удобный для вас способ. Доступна коммерческая поддержка.</string>
+    <string name="email">Электронная почта</string>
+    <string name="email_src">info@nextgis.com</string>
+    <string name="telegram">Telegram</string>
+    <string name="telegram_src">\@nextgis_support</string>
+    <string name="github">Github</string>
+    <string name="github_src">http://github.com/nextgis/android_gisapp/issues</string>
+    <string name="web">Сайт</string>
+    <string name="web_src">http://nextgis.ru/nextgis-mobile</string>
+    <string name="not_installed">Приложение не установлено</string>
+    <string name="action_help">Помощь</string>
+    <string name="location_distance_to">Расстояние до (м)</string>
+    <string name="pref_ga">Собирать статистику</string>
+    <string name="pref_ga_sum">Отправлять анонимные данные Google Analytics для улучшения приложения</string>
+    <string name="update_new">Найдена версия %1$s. Вы хотите обновиться?</string>
+    <string name="update_title">Обновить?</string>
+    <string name="update_check">Проверить обновления</string>
+    <string name="update_no">Обновлений не найдено</string>
+    <string name="intro1">Добро пожаловать в NextGIS Mobile!\n\nЭто приложение поможет вам:\n* Показывать карты из одного или нескольких слоёв\n* Загружать и создавать геоданные\n* Осуществлять полевой сбор данных\n* Записывать треки\nи многое другое!</string>
+    <string name="intro2">Войдите для эффективной работы, синхронизации и получения регулярных обновлений (необходима подписка). Вы можете войти позже через настройки.</string>
+    <string name="support_available">Доступна поддерживаемая версия</string>
+    <string name="more">Подробнее</string>
+    <string name="pricing">http://nextgis.ru/pricing/</string>
+    <string name="intro1_2">Загружайте и создавайте геоданные</string>
+    <string name="intro1_3">Собирайте полевые данные</string>
+    <string name="intro1_4">Записывайте треки</string>
+    <string name="intro1_1">Создавайте многослойные карты</string>
+    <string name="intro2_1">Новые функции, недоступные в бесплатной версии</string>
+    <string name="intro2_2">Регулярные обновления</string>
+    <string name="intro2_3">Быстрое исправление ошибок</string>
+    <string name="intro2_4">Прямая поддержка</string>
+    <string name="intro_more">Получите больше:</string>
+    <string name="intro_free">У вас бесплатная версия приложения</string>
+    <string name="intro_get_pro">Получить NextGIS Mobile Pro</string>
+
 </resources>
