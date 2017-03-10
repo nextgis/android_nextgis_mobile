@@ -5,7 +5,7 @@
  * Author:   NikitaFeodonit, nfeodonit@yandex.com
  * Author:   Stanislav Petriakov, becomeglory@gmail.com
  * ****************************************************************************
- * Copyright (c) 2012-2016 NextGIS, info@nextgis.com
+ * Copyright (c) 2012-2017 NextGIS, info@nextgis.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -34,9 +34,9 @@ import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.widget.Scroller;
 import android.widget.Toast;
-import com.nextgis.glviewer.Constants;
-import com.nextgis.glviewer.MainActivity;
-import com.nextgis.glviewer.MainApplication;
+import com.nextgis.libngui.util.ConstantsUI;
+import com.nextgis.mobile.activity.MainActivity;
+import com.nextgis.mobile.MainApplication;
 import com.nextgis.store.bindings.DrawState;
 
 import javax.microedition.khronos.egl.EGL10;
@@ -46,6 +46,7 @@ import javax.microedition.khronos.egl.EGLContext;
 import javax.microedition.khronos.egl.EGLDisplay;
 import javax.microedition.khronos.egl.EGLSurface;
 import javax.microedition.khronos.opengles.GL10;
+import java.io.File;
 import java.io.IOException;
 
 
@@ -159,7 +160,7 @@ public class MapGlView
     }
 
 
-    public void loadFile(String path)
+    public void loadFile(File path)
     {
         try {
             mMapDrawing.loadMap(path);
@@ -199,7 +200,7 @@ public class MapGlView
     {
         int error;
         while ((error = egl.eglGetError()) != EGL10.EGL_SUCCESS) {
-            Log.e(Constants.TAG, String.format("%s: EGL error: %s", prompt, getErrorString(error)));
+            Log.e(ConstantsUI.TAG, String.format("%s: EGL error: %s", prompt, getErrorString(error)));
         }
     }
 
@@ -219,7 +220,7 @@ public class MapGlView
             message += ": " + sb.toString();
         }
 
-        Log.e(Constants.TAG, message);
+        Log.e(ConstantsUI.TAG, message);
         throw new RuntimeException(message);
     }
 
@@ -389,9 +390,9 @@ public class MapGlView
                 EGLConfig[] configs)
         {
             int numConfigs = configs.length;
-            Log.w(Constants.TAG, String.format("%d configurations", numConfigs));
+            Log.w(ConstantsUI.TAG, String.format("%d configurations", numConfigs));
             for (int i = 0; i < numConfigs; i++) {
-                Log.w(Constants.TAG, String.format("Configuration %d:\n", i));
+                Log.w(ConstantsUI.TAG, String.format("Configuration %d:\n", i));
                 printConfig(egl, display, configs[i]);
             }
         }
@@ -481,7 +482,7 @@ public class MapGlView
                 int attribute = attributes[i];
                 String name = names[i];
                 if (egl.eglGetConfigAttrib(display, config, attribute, value)) {
-                    Log.w(Constants.TAG, String.format("  %s: %d\n", name, value[0]));
+                    Log.w(ConstantsUI.TAG, String.format("  %s: %d\n", name, value[0]));
                 } else {
                     // Log.w(TAG, String.format("  %s: failed\n", name));
                     while (egl.eglGetError() != EGL10.EGL_SUCCESS) { ; }
@@ -500,7 +501,7 @@ public class MapGlView
                 EGLDisplay display,
                 EGLConfig eglConfig)
         {
-            Log.w(Constants.TAG, "creating OpenGL ES 2.0 context");
+            Log.w(ConstantsUI.TAG, "creating OpenGL ES 2.0 context");
             checkEglError(egl, "Before eglCreateContext");
             int[] attrib_list = {EGL_CONTEXT_CLIENT_VERSION, 2, EGL10.EGL_NONE};
             mEglContext =
@@ -543,7 +544,7 @@ public class MapGlView
                     throwEglException(egl, "eglCreateWindowSurface");
                 }
             } catch (IllegalArgumentException e) {
-                Log.e(Constants.TAG, "eglCreateWindowSurface", e);
+                Log.e(ConstantsUI.TAG, "eglCreateWindowSurface", e);
                 throw new RuntimeException("eglCreateWindowSurface", e);
             }
             return mEglSurface;

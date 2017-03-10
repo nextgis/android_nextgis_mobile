@@ -5,7 +5,7 @@
  * Author:   NikitaFeodonit, nfeodonit@yandex.com
  * Author:   Stanislav Petriakov, becomeglory@gmail.com
  * ****************************************************************************
- * Copyright (c) 2012-2016 NextGIS, info@nextgis.com
+ * Copyright (c) 2012-2017 NextGIS, info@nextgis.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -24,7 +24,8 @@
 package com.nextgis.store.map;
 
 import android.util.Log;
-import com.nextgis.glviewer.Constants;
+import com.nextgis.libngui.util.ConstantsUI;
+import com.nextgis.mobile.util.AppConstants;
 import com.nextgis.store.bindings.Api;
 import com.nextgis.store.bindings.ErrorCodes;
 import com.nextgis.store.bindings.LoadTaskInfo;
@@ -56,9 +57,9 @@ public class DataStore
         mMapPath = mapPath;
         mLoadCallback = createLoadCallback();
 
-        String storePath = mapPath + "/" + Constants.NGS_NAME;
+        String storePath = mapPath + "/" + AppConstants.NGS_NAME;
         if (Api.ngsDataStoreInit(storePath) != ErrorCodes.EC_SUCCESS) {
-            Log.d(Constants.TAG, "Error: Storage initialize failed");
+            Log.d(ConstantsUI.TAG, "Error: Storage initialize failed");
             //return; // TODO: throw Ex
         }
     }
@@ -77,11 +78,11 @@ public class DataStore
     {
         closeMap();
 
-        File mapNativePath = new File(mMapPath, Constants.DEFAULT_MAP_NAME);
+        File mapNativePath = new File(mMapPath, AppConstants.DEFAULT_MAP_NAME);
         mMapId = Api.ngsMapOpen(mapNativePath.getPath());
 
         if (0 == mMapId) {
-            Log.d(Constants.TAG, "Error: Map load failed");
+            Log.d(ConstantsUI.TAG, "Error: Map load failed");
             return false;
         }
         return true;
@@ -94,7 +95,7 @@ public class DataStore
             if (Api.ngsMapClose(mMapId) == ErrorCodes.EC_SUCCESS) {
                 mMapId = 0;
             } else {
-                Log.d(Constants.TAG, "Error: Close map failed");
+                Log.d(ConstantsUI.TAG, "Error: Close map failed");
                 return false;
             }
         }
@@ -102,7 +103,7 @@ public class DataStore
     }
 
 
-    public void loadMap(String path)
+    public void loadMap(File shapeFile)
             throws IOException
     {
 // for debug
@@ -114,10 +115,9 @@ public class DataStore
 //            path = shapeFileTest.getAbsolutePath();
 //        }
 
-        File shapeFile = new File(path);
         if (!shapeFile.exists()) {
             String error = "File orbview3_catalog.shp is not exist.";
-            Log.d(Constants.TAG, error);
+            Log.d(ConstantsUI.TAG, error);
             throw new IOException(error);
         }
 
@@ -129,7 +129,7 @@ public class DataStore
 
         if (Api.ngsDataStoreLoad(sceneFileName, sceneFilePath, "", options, mLoadCallback) == 0) {
             String error = "Error: Load scene failed";
-            Log.d(Constants.TAG, error);
+            Log.d(ConstantsUI.TAG, error);
             throw new IOException(error);
         }
     }
@@ -159,7 +159,7 @@ public class DataStore
     {
         LoadTaskInfo info = Api.ngsDataStoreGetLoadTaskInfo(taskId);
         if (info.getStatus() != ErrorCodes.EC_SUCCESS) {
-            Log.d(Constants.TAG, "Error: Load " + info.getName() + " failed");
+            Log.d(ConstantsUI.TAG, "Error: Load " + info.getName() + " failed");
             return false;
         }
 
@@ -178,10 +178,10 @@ public class DataStore
 
     public boolean saveMap()
     {
-        File ngmdFile = new File(mMapPath, Constants.DEFAULT_MAP_NAME);
+        File ngmdFile = new File(mMapPath, AppConstants.DEFAULT_MAP_NAME);
 
         if (Api.ngsMapSave(mMapId, ngmdFile.getPath()) != ErrorCodes.EC_SUCCESS) {
-            Log.d(Constants.TAG, "Error: Map save failed");
+            Log.d(ConstantsUI.TAG, "Error: Map save failed");
             return false;
         }
         return true;

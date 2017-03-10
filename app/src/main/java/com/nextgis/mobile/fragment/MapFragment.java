@@ -5,7 +5,7 @@
  * Author:   NikitaFeodonit, nfeodonit@yandex.com
  * Author:   Stanislav Petriakov, becomeglory@gmail.com
  * ****************************************************************************
- * Copyright (c) 2012-2016 NextGIS, info@nextgis.com
+ * Copyright (c) 2012-2017 NextGIS, info@nextgis.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,7 +21,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.nextgis.glviewer;
+package com.nextgis.mobile.fragment;
 
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
@@ -31,10 +31,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.nextgis.mobile.R;
+import com.nextgis.mobile.activity.MainActivity;
 import com.nextgis.libngui.dialog.LocalResourceSelectDialog;
 import com.nextgis.store.map.MapDrawing;
 import com.nextgis.store.map.MapGlView;
 
+import java.io.File;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Locale;
@@ -182,7 +185,7 @@ public class MapFragment
 
 
     @Override
-    public void onSelection(String path)
+    public void onSelection(File path)
     {
         mMapGlView.loadFile(path);
     }

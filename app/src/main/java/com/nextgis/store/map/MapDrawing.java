@@ -5,7 +5,7 @@
  * Author:   NikitaFeodonit, nfeodonit@yandex.com
  * Author:   Stanislav Petriakov, becomeglory@gmail.com
  * ****************************************************************************
- * Copyright (c) 2012-2016 NextGIS, info@nextgis.com
+ * Copyright (c) 2012-2017 NextGIS, info@nextgis.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -29,7 +29,7 @@ import android.os.Debug;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
-import com.nextgis.glviewer.Constants;
+import com.nextgis.libngui.util.ConstantsUI;
 import com.nextgis.store.bindings.Api;
 import com.nextgis.store.bindings.Coordinate;
 import com.nextgis.store.bindings.DrawState;
@@ -327,11 +327,11 @@ public class MapDrawing
     public void draw()
     {
         synchronized (mDrawStateLock) {
-            Log.d(Constants.TAG, "draw started, getNativeHeapSize(): " + Debug.getNativeHeapSize());
-            Log.d(Constants.TAG, "draw started, getNativeHeapAllocatedSize(): "
+            Log.d(ConstantsUI.TAG, "draw started, getNativeHeapSize(): " + Debug.getNativeHeapSize());
+            Log.d(ConstantsUI.TAG, "draw started, getNativeHeapAllocatedSize(): "
                     + Debug.getNativeHeapAllocatedSize());
             Log.d(
-                    Constants.TAG,
+                    ConstantsUI.TAG,
                     "draw started, getNativeHeapFreeSize: " + Debug.getNativeHeapFreeSize());
 
             //Log.d(Constants.TAG, "+++ draw 01, mMapId: " + mMapId + ", mDrawState: " + mDrawState);
@@ -342,12 +342,12 @@ public class MapDrawing
             //Log.d(Constants.TAG, "+++ draw 02, mMapId: " + mMapId + ", mDrawState: " + mDrawState);
 
             Log.d(
-                    Constants.TAG,
+                    ConstantsUI.TAG,
                     "draw finished, getNativeHeapSize(): " + Debug.getNativeHeapSize());
-            Log.d(Constants.TAG, "draw finished, getNativeHeapAllocatedSize(): "
+            Log.d(ConstantsUI.TAG, "draw finished, getNativeHeapAllocatedSize(): "
                     + Debug.getNativeHeapAllocatedSize());
             Log.d(
-                    Constants.TAG,
+                    ConstantsUI.TAG,
                     "draw finished, getNativeHeapFreeSize: " + Debug.getNativeHeapFreeSize());
         }
     }
@@ -364,11 +364,11 @@ public class MapDrawing
                     String message)
             {
                 Log.d(
-                        Constants.TAG,
+                        ConstantsUI.TAG,
                         "ProgressCallback run, getNativeHeapSize(): " + Debug.getNativeHeapSize());
-                Log.d(Constants.TAG, "ProgressCallback run, getNativeHeapAllocatedSize(): "
+                Log.d(ConstantsUI.TAG, "ProgressCallback run, getNativeHeapAllocatedSize(): "
                         + Debug.getNativeHeapAllocatedSize());
-                Log.d(Constants.TAG, "ProgressCallback run, getNativeHeapFreeSize: "
+                Log.d(ConstantsUI.TAG, "ProgressCallback run, getNativeHeapFreeSize: "
                         + Debug.getNativeHeapFreeSize());
 
                 boolean requested = false;
@@ -387,7 +387,7 @@ public class MapDrawing
                     synchronized (mDrawTimeLock) {
                         mDrawTimeSync = System.currentTimeMillis() - mDrawTimeSync;
                         time = mDrawTimeSync;
-                        Log.d(Constants.TAG, "Native map draw time: " + time);
+                        Log.d(ConstantsUI.TAG, "Native map draw time: " + time);
                     }
 
                     int count = Integer.valueOf(message);

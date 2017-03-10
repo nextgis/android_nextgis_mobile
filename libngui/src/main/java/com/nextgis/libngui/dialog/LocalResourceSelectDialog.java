@@ -5,7 +5,7 @@
  * Author:   NikitaFeodonit, nfeodonit@yandex.com
  * Author:   Stanislav Petriakov, becomeglory@gmail.com
  * *****************************************************************************
- * Copyright (c) 2012-2016 NextGIS, info@nextgis.com
+ * Copyright (c) 2012-2017 NextGIS, info@nextgis.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser Public License as published by
@@ -35,12 +35,12 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 import com.nextgis.libngui.R;
-import com.nextgis.libngui.activity.NGActivity;
 import com.nextgis.libngui.adapter.ListSelectorAdapter;
 import com.nextgis.libngui.adapter.LocalResourceListAdapter;
 import com.nextgis.libngui.adapter.LocalResourceListItem;
 import com.nextgis.libngui.adapter.LocalResourceListLoader;
 import com.nextgis.libngui.adapter.SimpleDividerItemDecoration;
+import com.nextgis.libngui.util.ThemeUtil;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -120,7 +120,7 @@ public class LocalResourceSelectDialog
     public void onCreate(Bundle savedInstanceState)
     {
         setKeepInstance(true);
-        setThemeDark(NGActivity.isDarkTheme(getActivity()));
+        setThemeDark(ThemeUtil.isDarkTheme(getActivity()));
 
         super.onCreate(savedInstanceState);
 
@@ -187,7 +187,7 @@ public class LocalResourceSelectDialog
                         .show();
 
                 if (null != mOnSelectionListener) {
-                    String path = items.get(0).getFile().getAbsolutePath();
+                    File path = items.get(0).getFile();
                     mOnSelectionListener.onSelection(path);
                 }
             }
@@ -281,6 +281,6 @@ public class LocalResourceSelectDialog
 
     public interface OnSelectionListener
     {
-        void onSelection(String path);
+        void onSelection(File path);
     }
 }
