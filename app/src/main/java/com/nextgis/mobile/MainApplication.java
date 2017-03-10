@@ -32,6 +32,7 @@ import com.nextgis.libngui.GISApplication;
 import com.nextgis.libngui.util.ConstantsUI;
 import com.nextgis.mobile.activity.SettingsActivity;
 import com.nextgis.libngui.util.SettingsConstantsUI;
+import com.nextgis.mobile.util.AppSettingsConstants;
 import com.nextgis.ngsandroid.NgsAndroidJni;
 import com.nextgis.store.bindings.Api;
 import com.nextgis.store.bindings.Options;
@@ -52,6 +53,8 @@ public class MainApplication
 
         NgsAndroidJni.initLogger();
         Log.d(ConstantsUI.TAG, "NGS version: " + Api.ngsGetVersionString(null));
+
+        updateFromOldVersion();
 
         initNgs();
     }
@@ -122,5 +125,29 @@ public class MainApplication
         intent.setAction(settings);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
+    }
+
+
+    private void updateFromOldVersion()
+    {
+        try {
+            int currentVersionCode =
+                    getPackageManager().getPackageInfo(getPackageName(), 0).versionCode;
+            int savedVersionCode =
+                    mSharedPreferences.getInt(AppSettingsConstants.KEY_PREF_APP_VERSION, 0);
+
+            switch (savedVersionCode) {
+                case 0:
+                default:
+                    break;
+            }
+
+            if (savedVersionCode < currentVersionCode) {
+                mSharedPreferences.edit()
+                        .putInt(AppSettingsConstants.KEY_PREF_APP_VERSION, currentVersionCode)
+                        .apply();
+            }
+        } catch (PackageManager.NameNotFoundException ignored) {
+        }
     }
 }

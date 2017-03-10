@@ -23,6 +23,9 @@
 
 package com.nextgis.mobile.util;
 
+import com.nextgis.mobile.BuildConfig;
+
+
 public interface AppConstants
 {
     String DEFAULT_MAP_NAME = "default.ngmd";
@@ -32,7 +35,9 @@ public interface AppConstants
      * Fragments tags
      */
     String FRAGMENT_SETTINGS_HEADER_FRAGMENT = "settings_header_fragment";
-    String FRAGMENT_SETTINGS_FRAGMENT = "settings_fragment";
+    String FRAGMENT_SETTINGS_FRAGMENT        = "settings_fragment";
 
     int DEFAULT_COORDINATES_FRACTION_DIGITS = 6;
+
+    String APK_DOWNLOADER_PROVIDER_NAME = BuildConfig.APK_DOWNLOADER_PROVIDER_NAME;
 }

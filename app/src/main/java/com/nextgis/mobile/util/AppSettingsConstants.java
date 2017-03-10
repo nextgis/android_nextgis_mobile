@@ -66,5 +66,5 @@ public interface AppSettingsConstants
     String GA_SCREEN_ABOUT   = "About Screen";
     String GA_SCREEN_SUPPORT = "Support Screen";
 
-    String APK_VERSION_UPDATE = "https://my.nextgis.com/downloads/software/mobile/version";
+    String APK_VERSION_UPDATE = "https://my.nextgis.com/downloads/software/ngm3/version";
 }

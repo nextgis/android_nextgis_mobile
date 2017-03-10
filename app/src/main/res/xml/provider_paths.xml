@@ -22,34 +22,9 @@
   ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   -->
 
-<PreferenceScreen
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
-
-    <PreferenceScreen
-            android:title="@string/general"
-            android:key="com.nextgis.mobile.PREFS_GENERAL"
-            >
-        <!-- We need the stub preference -->
-        <Preference/>
-    </PreferenceScreen>
-
-    <PreferenceScreen
-            android:title="@string/ngid_settings"
-            android:key="com.nextgis.mobile.PREFS_NGID"
-            >
-        <!-- We need the stub preference -->
-        <Preference/>
-    </PreferenceScreen>
-
-    <PreferenceScreen
-            android:title="@string/update_check"
-            android:key="com.nextgis.mobile.PREFS_UPDATE"
-            >
-        <!-- We need the stub preference -->
-        <Preference/>
-    </PreferenceScreen>
-
-</PreferenceScreen>
+<paths>
+    <external-path
+            name="external_files"
+            path="."
+            />
+</paths>

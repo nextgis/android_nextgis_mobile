@@ -34,7 +34,6 @@ import android.support.v7.preference.PreferenceManager;
 import android.support.v7.preference.PreferenceScreen;
 import com.nextgis.libngui.fragment.NGPreferenceSettingsFragment;
 import com.nextgis.libngui.util.SettingsConstantsUI;
-import com.nextgis.mobile.MainApplication;
 import com.nextgis.mobile.R;
 import com.nextgis.mobile.util.AppSettingsConstants;
 import com.nextgis.mobile.util.SelectMapPathPreference;
@@ -62,9 +61,9 @@ public class SettingsFragment
                 initializeReset(getActivity(), reset);
                 break;
 
-//            case SettingsConstantsUI.ACTION_PREFS_UPDATE:
-//                ApkDownloader.check(getActivity(), true);
-//                break;
+            case SettingsConstantsUI.ACTION_PREFS_UPDATE:
+                ApkDownloader.check(getActivity(), true);
+                break;
         }
     }
 

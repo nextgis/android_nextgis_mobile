@@ -5,7 +5,7 @@
  * Author:   NikitaFeodonit, nfeodonit@yandex.com
  * Author:   Stanislav Petriakov, becomeglory@gmail.com
  * ****************************************************************************
- * Copyright (c) 2012-2016 NextGIS, info@nextgis.com
+ * Copyright (c) 2012-2017 NextGIS, info@nextgis.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -42,7 +42,8 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             applicationVariants.all { variant ->
                 variant.outputs.each { output ->
-                    output.outputFile = new File(output.outputFile.parent, "ngmobile3-" + defaultConfig.versionName + ".apk")
+                    output.outputFile = new File(output.outputFile.parent,
+                            "ngmobile3-" + defaultConfig.versionName + ".apk")
                 }
             }
         }
@@ -56,6 +57,7 @@ android {
     // DO NOT PUBLIC the file 'sentry.properties' !!!
     File sentryPropFile = rootProject.file('sentry.properties')
     def String sentryDsn
+    def String apkDownloaderProviderName = "${defaultConfig.applicationId}.apkdownloader.provider"
     if (sentryPropFile.exists()) {
         Properties sentryProp = new Properties()
         sentryProp.load(sentryPropFile.newDataInputStream())
@@ -66,9 +68,15 @@ android {
     buildTypes {
         release {
             buildConfigField "String", "SENTRY_DSN", "\"${sentryDsn}\""
+            buildConfigField "String", "APK_DOWNLOADER_PROVIDER_NAME",
+                    "\"${apkDownloaderProviderName}\""
+            resValue "string", "apk_downloader_provider_name", "${apkDownloaderProviderName}"
         }
         debug {
             buildConfigField "String", "SENTRY_DSN", "\"${sentryDsn}\""
+            buildConfigField "String", "APK_DOWNLOADER_PROVIDER_NAME",
+                    "\"${apkDownloaderProviderName}\""
+            resValue "string", "apk_downloader_provider_name", "${apkDownloaderProviderName}"
         }
     }
 }
