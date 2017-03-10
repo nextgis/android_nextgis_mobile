@@ -31,6 +31,7 @@ android {
         targetSdkVersion 25
         versionCode 1
         versionName '1.0'
+        buildConfigField "String", "CLIENT_ID", "\"lmD01wvWCfhfMYPuy5Yca4DlYBW0IxmvgjK5A8uv\""
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     productFlavors {

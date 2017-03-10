@@ -22,24 +22,10 @@
   ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   -->
 
-<manifest
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        package="com.nextgis.libngui"
-        >
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+       android:shape="rectangle">
 
-    <application
-            android:allowBackup="true"
-            >
+    <corners android:radius="48dp"/>
+    <solid android:color="@color/primary_dark"/>
 
-        <activity
-                android:name=".activity.NGIDSettingsActivity"
-                android:label="@string/ngid_settings"
-                />
-
-        <activity
-                android:name=".activity.NGIDLoginActivity"
-                android:label="@string/ngid_my"
-                />
-
-    </application>
-</manifest>
+</shape>

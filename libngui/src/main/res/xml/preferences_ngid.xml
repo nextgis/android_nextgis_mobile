@@ -22,24 +22,26 @@
   ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   -->
 
-<manifest
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        package="com.nextgis.libngui"
-        >
-
-    <application
-            android:allowBackup="true"
-            >
-
-        <activity
-                android:name=".activity.NGIDSettingsActivity"
-                android:label="@string/ngid_settings"
-                />
-
-        <activity
-                android:name=".activity.NGIDLoginActivity"
-                android:label="@string/ngid_my"
-                />
-
-    </application>
-</manifest>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <Preference
+            android:key="username"
+            android:title="@string/ngid_username"
+            />
+    <Preference
+            android:key="email"
+            android:title="@string/ngid_email"
+            />
+    <Preference
+            android:key="first_name"
+            android:title="@string/ngid_first_name"
+            />
+    <Preference
+            android:key="last_name"
+            android:title="@string/ngid_last_name"
+            />
+    <Preference
+            android:key="sign_out"
+            android:persistent="false"
+            android:title="@string/sign_out"
+            />
+</PreferenceScreen>

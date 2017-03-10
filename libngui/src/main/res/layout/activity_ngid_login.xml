@@ -22,24 +22,25 @@
   ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   -->
 
-<manifest
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        package="com.nextgis.libngui"
-        >
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <application
-            android:allowBackup="true"
-            >
+    <include layout="@layout/actionbar"/>
 
-        <activity
-                android:name=".activity.NGIDSettingsActivity"
-                android:label="@string/ngid_settings"
-                />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="8dp">
 
-        <activity
-                android:name=".activity.NGIDLoginActivity"
-                android:label="@string/ngid_my"
-                />
-
-    </application>
-</manifest>
+        <fragment
+            android:id="@+id/login_screen"
+            android:name="com.nextgis.libngui.fragment.NGIDLoginFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="?attr/actionBarSize"
+            tools:layout="@layout/fragment_ngid_login"/>
+    </FrameLayout>
+</FrameLayout>

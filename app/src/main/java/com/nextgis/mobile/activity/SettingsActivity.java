@@ -75,9 +75,9 @@ public class SettingsActivity
 //            case SettingsConstantsUI.ACTION_PREFS_NGW:
 //                fragment = new NGWSettingsFragment();
 //                break;
-//            case SettingsConstantsUI.ACTION_PREFS_NGID:
-//                fragment = new NGIDSettingsFragment();
-//                break;
+            case SettingsConstantsUI.ACTION_PREFS_NGID:
+                fragment = new NGIDSettingsFragment();
+                break;
         }
         return fragment;
     }
@@ -115,10 +115,10 @@ public class SettingsActivity
 //            case SettingsConstantsUI.ACTION_PREFS_NGW:
 //                intent = new Intent(this, NGWSettingsActivity.class);
 //                break;
-//            case SettingsConstantsUI.ACTION_PREFS_NGID:
-//                intent = new Intent(this, NGIDSettingsActivity.class);
-//                break;
+            case SettingsConstantsUI.ACTION_PREFS_NGID:
+                intent = new Intent(this, NGIDSettingsActivity.class);
+                break;
         }
-//        startActivity(intent);
+        startActivity(intent);
     }
 }

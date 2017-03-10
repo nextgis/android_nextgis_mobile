@@ -36,4 +36,12 @@
         <Preference/>
     </PreferenceScreen>
 
+    <PreferenceScreen
+            android:title="@string/ngid_settings"
+            android:key="com.nextgis.mobile.PREFS_NGID"
+            >
+        <!-- We need the stub preference -->
+        <Preference/>
+    </PreferenceScreen>
+
 </PreferenceScreen>
