@@ -46,7 +46,7 @@ before_script:
     - export ANDROID_NDK_HOME=$ANDROID_HOME/ndk-bundle
 
 script:
-    - travis_wait 60 ./gradlew assembleRelease
+    - travis_wait 120 ./gradlew assembleRelease
     - ls -l ./app/build/outputs/apk
 #    - ./ci/travis/android_gradle/script.sh
 #    - ./gradlew assemble lint
