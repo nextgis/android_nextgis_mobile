@@ -23,6 +23,8 @@
   -->
 
 <resources>
+    <string name="test_app_name" translatable="false">Test application</string>
+
     <!--TODO:-->
     <string name="formbuilder_file">FormBuilder file</string>
     <string name="geojson_file">GeoJSON file</string>
